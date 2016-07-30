@@ -6,12 +6,10 @@
           <div class="col-md-12">
               <h1>Notes</h1>
               {% if notes %}
-                  <ul class="list--unstyled">
+                  <ul class="list--unstyled list--notes">
                     {% for note in notes %}
                         <li>
-                            <div>
-                                {{ note.content }}
-                            </div>
+                            <div class="note-content">{{ note.content }}</div>
                         </li>
                     {% endfor %}
                   </ul>

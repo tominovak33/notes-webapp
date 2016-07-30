@@ -9,3 +9,20 @@ body {
   list-style-type: none;
   padding: 0;
 }
+
+.list--notes {
+  margin-bottom: 50px;
+}
+
+.list--notes li {
+  padding: 15px 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.list--notes .note-content {
+  white-space: pre-wrap;
+}
+
+.navbar {
+  background-color: #eee;
+}
