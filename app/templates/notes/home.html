@@ -1,0 +1,31 @@
+{% extends "templates/base.html" %}
+
+{% block body %}
+  <div class="container">
+      <div class="row">
+          <div class="col-md-12">
+              <h1>Notes</h1>
+              {% if notes %}
+                  <ul class="list--unstyled">
+                    {% for note in notes %}
+                        <li>
+                            <div>
+                                {{ note.content }}
+                            </div>
+                        </li>
+                    {% endfor %}
+                  </ul>
+              {% endif %}
+          </div>
+      </div>
+        <div class="row">
+          <div class="col-md-12">
+              <form action="" method="POST">
+                      <label for="note_input">Note:</label>
+                      <textarea class="form-control" name="note" id="note_input" rows="6" cols="60" placeholder="New Note"></textarea>
+                  <input class="btn btn-primary" type="submit" value="Save">
+              </form>
+          </div>
+      </div>
+  </div>
+{% endblock %}

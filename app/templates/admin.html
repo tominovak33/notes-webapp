@@ -1,0 +1,15 @@
+{% extends "templates/base.html" %}
+
+{% block body %}
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12">
+              <h1>Admin Area</h1>
+              {% if user %}
+                <p>You are logged in as an administrator.</p>
+                <p>Email Address: <strong>{{ user }}</strong></p>
+              {% endif %}
+          </div>
+      </div>
+  </div>
+{% endblock %}
