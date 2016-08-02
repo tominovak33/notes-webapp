@@ -36,7 +36,6 @@ def login(required=False):
 class HomeHandler(webapp2.RequestHandler):
     @login(False)
     def get(self):
-
         if self.user:
             url = users.create_logout_url(self.request.uri)
             url_link_text = 'Logout'
