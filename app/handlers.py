@@ -6,6 +6,7 @@ from models import User as User
 from models import Note as Note
 import templates
 import helpers
+import abstractions
 
 
 def login(required=False):

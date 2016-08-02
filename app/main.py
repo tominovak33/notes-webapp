@@ -1,5 +1,13 @@
 import webapp2
 import os
+import sys
+
+# Add vendor directory to module search path
+current_dir = os.path.abspath(os.path.dirname(__file__))
+sys.path.append(current_dir)
+
+vendor_dir = os.path.join(current_dir, 'lib')
+sys.path.append(vendor_dir)
 
 import routes
 

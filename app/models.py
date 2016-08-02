@@ -21,4 +21,3 @@ class Note(ndb.Model):
     content = ndb.TextProperty()
     date_created = ndb.DateTimeProperty(auto_now_add=True)
     date_edited = ndb.DateTimeProperty(auto_now=True)
-
