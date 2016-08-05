@@ -104,6 +104,29 @@ class NotesHandler(webapp2.RequestHandler):
         return
 
 
+class RegistrationHandler(webapp2.RequestHandler):
+    def get(self):
+        templates.render_page("user/register", {}, self)
+
+    def post(self):
+        user = User.register(self.request.get('email'), self.request.get('password'))
+        print user
+        templates.render_page("user/register_complete", {}, self)
+
+
+class LoginHandler(webapp2.RequestHandler):
+    def get(self):
+        templates.render_page("user/login", {}, self)
+
+    def post(self):
+        login, user = User.login(self.request.get('email'), self.request.get('password'))
+        if login:
+            self.response.write("Logged in")
+            cookie_token = abstractions.generate_auth_token(user.key.urlsafe())
+            helpers.set_cookie('session_token', cookie_token, self)
+            self.redirect('/notes')
+
+
 class NoteHandler(webapp2.RequestHandler):
     @login(True)
     def get(self, route):

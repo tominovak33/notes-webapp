@@ -18,4 +18,4 @@ if os.getenv('SERVER_SOFTWARE', '').startswith('Google App Engine/'):
 else:
     debug_setting = True
 
-app = webapp2.WSGIApplication(routes.ROUTES, debug=debug_setting) # Load the app
+app = webapp2.WSGIApplication(routes.ROUTES, debug=debug_setting)  # Load the app
