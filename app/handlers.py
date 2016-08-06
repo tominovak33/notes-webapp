@@ -122,9 +122,8 @@ class LoginHandler(webapp2.RequestHandler):
         templates.render_page("user/login", {}, self)
 
     def post(self):
-        login, user = User.login(self.request.get('email'), self.request.get('password'))
-        if login:
-            print "Logged in"
+        login_valid, user = User.login(self.request.get('email'), self.request.get('password'))
+        if login_valid:
             abstractions.set_login_cookie(user, self)
             # cookie_token = abstractions.generate_auth_token(user.key.urlsafe())
             # helpers.set_cookie('auth_token', cookie_token, self)
