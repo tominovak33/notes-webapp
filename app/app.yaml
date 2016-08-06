@@ -17,7 +17,6 @@ handlers:
 # Require login for the notes page
 - url: /notes/*
   script: main.app
-  login: required
 
 
 # Restrict the admin pages to admin users only (set their accounts in the app engine console) . This redirects to a login if not logged in

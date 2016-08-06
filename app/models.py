@@ -34,6 +34,7 @@ class User(ndb.Model):
     def register(email, password):
         user = User()
         user.email = email
+        user.name = email
         user.password = helpers.hash_password(password)
         user.put()
         return user

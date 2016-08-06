@@ -14,7 +14,10 @@ def login(required=False):
         def get_logged_in_user(self, *args):
             self.user = False
             google_account = users.get_current_user()
-            if google_account:
+            local_user = abstractions.get_current_user(self)
+            if local_user:
+                self.user = local_user
+            elif google_account:
                 if not User.get_by_user(google_account):
                     # register new user
                     user = User(id=google_account.user_id())
@@ -91,7 +94,7 @@ class NotesHandler(webapp2.RequestHandler):
             note.user = user.key
             note.put()
 
-            # show confirmation of successful post creation
+            # show confirma   tion of successful post creation
             template_values = {
                 'message': 'Note created successfully'
             }
@@ -121,9 +124,10 @@ class LoginHandler(webapp2.RequestHandler):
     def post(self):
         login, user = User.login(self.request.get('email'), self.request.get('password'))
         if login:
-            self.response.write("Logged in")
-            cookie_token = abstractions.generate_auth_token(user.key.urlsafe())
-            helpers.set_cookie('session_token', cookie_token, self)
+            print "Logged in"
+            abstractions.set_login_cookie(user, self)
+            # cookie_token = abstractions.generate_auth_token(user.key.urlsafe())
+            # helpers.set_cookie('auth_token', cookie_token, self)
             self.redirect('/notes')
 
 

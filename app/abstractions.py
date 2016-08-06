@@ -14,9 +14,12 @@ def get_current_user(self):
 
 
 def get_user_from_token(token):
-    payload = auth.decode_auth_token(token)
-    url_key_str = payload['user_key']
-    return get_user_by_url_key(url_key_str)
+    try:
+        payload = auth.decode_auth_token(token)
+        url_key_str = payload['user_key']
+        return get_user_by_url_key(url_key_str)
+    except:
+        return False
 
 
 def set_login_cookie(user, self):

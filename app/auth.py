@@ -26,4 +26,7 @@ def generate_auth_token(user_key):
 
 def decode_auth_token(token):
     # return jwt.decode(token, secret_key, audience='http://tomi-dev.tech')
-    return jwt.decode(token, secret_key, audience=audience, algorithms=algorithm)
+    try:
+        return jwt.decode(token, secret_key, audience=audience, algorithms=algorithm)
+    except:
+        return False
