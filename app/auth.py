@@ -1,9 +1,7 @@
 import jwt
 import time
 
-secret_key = "-----BEGIN PRIVATE KEY-----"\
-             "PUT PRIVATE KEY HERE"\
-             "-----END PRIVATE KEY-----"
+secret_key = "foobar"
 
 audience = "http://notes.tomi33.co.uk"
 algorithm = 'HS256'
