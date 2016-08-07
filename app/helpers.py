@@ -37,7 +37,7 @@ def get_cookie(name, self):
 
 
 def hash_password(password):
-    return bcrypt.hashpw(password, bcrypt.gensalt(10))
+    return bcrypt.hashpw(password, bcrypt.gensalt(7))
 
 
 def check_password(password, hashed):
