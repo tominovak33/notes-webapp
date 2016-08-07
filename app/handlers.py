@@ -80,6 +80,8 @@ class NotesHandler(webapp2.RequestHandler):
             'description': 'Notes App - Admin Area'
         }
 
+        mail.send_mail("dev.tomi33@gmail.com", "My test email subject", "The test email content in the template done", '06ac801d-a03f-4c1a-bec3-0a4d4ac6b867')
+
         templates.render_page("notes/home", template_values, self)
         # get the users notes here
         return
