@@ -7,7 +7,7 @@ from models import Note as Note
 import templates
 import helpers
 import abstractions
-
+import mail
 
 def login(required=False):
     def the_decorator(get_or_post_method):
