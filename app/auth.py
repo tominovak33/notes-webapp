@@ -1,7 +1,10 @@
 import jwt
 import time
 
-secret_key = "foobar"
+import config
+
+
+secret_key = config.JWT_SECRET_KEY
 
 audience = "http://notes.tomi33.co.uk"
 algorithm = 'HS256'
